@@ -1,0 +1,49 @@
+/* External style sheet */
+
+/* * {
+    border: 1px solid black;
+} */
+
+nav ul li {
+    display: inline;
+}
+
+body {
+    color: #eac67a;
+    background-color: #18121e;
+    font-size: large;
+}
+
+a {
+    color: #984B43;
+    font-weight: bold;
+    text-decoration: none;    
+}
+
+a:visited {
+    color: #233237;
+}
+
+
+#hero-img {
+    width: 50%;
+}
+
+#hero-section {
+    width: 100%;
+}
+
+.lower-boxes {
+    margin-inline-end: 8%;
+    display: inline-block;
+}
+
+.lower-boxes li {
+    list-style: "> ";
+}
+
+.copyright {
+    font-weight: bold;
+    font-size: large;
+}
+
