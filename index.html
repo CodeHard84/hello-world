@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
     <title>Jace's Favorite Tools</title>
 </head>
 <body>
@@ -21,7 +22,18 @@
         <section class="main-section">
             <section id="hero-section">
                 <!-- Favorite Tool Section, style will come later via CSS. -->
-                <p>My Current Favorite Tool</p>
+                <!-- This is just for assignment 6, it'll be gone soon. -->
+                <p>Your favorite tool is: <script>document.write(prompt("What's your favorite dev tool?"))</script>
+                    <script>
+                    let choice = confirm("Do you like cookies?")
+                    if (choice == true)                    {
+                        document.write(" and you also like cookies!")
+                    } else {
+                        document.write(" and you live a sad sad cookie free life.... =(")
+                    }
+                    </script>
+                </p>
+                <p>My Current Favorite Tool:</p>
                 <img id="hero-img" src="assets/vscode1.jpg" alt="VSCode Image" />
                 <p>I love VSCode because it is freely available to the public and has a ton of plugins.</p>
             </section>
@@ -51,7 +63,9 @@
         </section>
     </main>
     <footer>
-        <p class="copyright">Creative Commons, 2024.</p>
+        <!-- I had help with this: https://stackoverflow.com/questions/6002254/get-the-current-year-in-javascript -->
+        <p class="copyright"><a href="https://creativecommons.org/publicdomain/zero/1.0/">
+            CC0, <script>document.write(new Date().getFullYear())</script>.</a></p>
     </footer> 
 </body>
 </html>
