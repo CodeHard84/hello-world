@@ -23,17 +23,8 @@
             <section id="hero-section">
                 <!-- Favorite Tool Section, style will come later via CSS. -->
                 <!-- This is just for assignment 6, it'll be gone soon. -->
-                <p>Your favorite tool is: <script>document.write(prompt("What's your favorite dev tool?"))</script>
-                    <script>
-                    let choice = confirm("Do you like cookies? OK for Yes or Cancel for No!")
-                    if (choice == true)                    {
-                        document.write(" and you also like cookies!")
-                    } else {
-                        document.write(" and you live a sad sad cookie free life.... =(")
-                    }
-                    </script>
-                </p>
-                <p>My Current Favorite Tool:</p>
+                <script>getFavoriteTool();</script>
+                <p>My Current Favorite Tool is VSCode!</p>
                 <img id="hero-img" src="assets/vscode1.jpg" alt="VSCode Image" />
                 <p>I love VSCode because it is freely available to the public and has a ton of plugins.</p>
             </section>
@@ -63,9 +54,8 @@
         </section>
     </main>
     <footer>
-        <!-- I had help with this: https://stackoverflow.com/questions/6002254/get-the-current-year-in-javascript -->
         <p class="copyright"><a href="https://creativecommons.org/publicdomain/zero/1.0/">
-            CC0, <script>document.write(new Date().getFullYear())</script>.</a></p>
+            CC0, <script>getYear();</script>.</a></p>
     </footer> 
 </body>
 </html>
