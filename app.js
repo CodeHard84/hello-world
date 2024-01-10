@@ -1,24 +1,33 @@
 'use strict';
 
-function getFavoriteTool(){
-    // This still needs tons of validation. However, it is a start.
-    let tool = prompt("What is your favorite development tool?");
-    if (tool == "" || tool == null){
-        tool = prompt("What is your favorite development tool?");
-    }
-    // After extensive testing I found out prompt returns null if 'cancelled' not an empty string.
-    if (tool !== "" && tool !== null) {
-        if (likeCookies()) {
-            document.write("<p>Your favorite tool is: " + tool + " and you also like cookies!</p>");
-        }
+function getFavoriteTool() {
+    let tool = prompt('What\'s your favorite development tool?');
+    let tracker = 0;
+    // This still won't check for whitespaces or bad characters.
+    while (tool == "" || tool == null) {
+        // Let's ask 3 times then ask a different way.
+        if (tracker <= 2) {
+            tool = prompt('What\'s your favorite development tool?'); 
+        } 
         else {
-            document.write("<p>Your favorite tool is: " + tool + "  and you live a sad sad sad cookie free life.... =(</p>");
+            tool = prompt('Come on.... What\'s your favorite development tool? I\'ve asked ' + tracker + ' times already!')
         }
-    } else {
-        document.write("<p>This would be more fun if you would answer the questions!! Press F5 and try again!</p>");
+        tracker++;      
+    }
+    // Let's ask the user to rate their favorite tool from 1-5 stars.
+    let stars = rateFavoriteTool(tool);
+    let cookies = likeCookies();
+    // Now let's put it all together and write to the document.
+    if (cookies) {
+        document.write("<p>Your favorite tool is: " + tool + " and you also like cookies!</p>");
+        writeStars(stars, tool);
+    }
+    else{
+        document.write("<p>Your favorite tool is: " + tool + "  and you live a sad sad sad cookie free life.... =(</p>");
+        writeStars(stars, tool);
     }
     if (tool.toLowerCase() == "jace") {
-        document.write("<p>Well at least I am your favorite! LOL</p>");
+        document.write("<p>Well at least I am your favorite! LOL</p>"); 
     }
     if (tool.toLowerCase() == "vscode") {
         document.write("<p>WE'RE SPIRIT ANIMALS!!! Seriously, did we just become best friends? We both like VSCode!</p>");
@@ -26,12 +35,31 @@ function getFavoriteTool(){
 }
 
 function likeCookies() {
-    let cookie;
-    cookie = confirm("Do you like cookies? OK for Yes or Cancel for No!");
+    let cookie = confirm("Do you like cookies? OK for Yes or Cancel for No!");
     return cookie;
 }
 
 function getYear() {
     // I had help with this: https://stackoverflow.com/questions/6002254/get-the-current-year-in-javascript
     document.write(new Date().getFullYear());
+}
+
+function rateFavoriteTool(tool) {
+    let rating = prompt('Please rate ' + tool +' from 1-5 stars!');
+    // this breaks if the user enters a string.
+    while (rating > 5 || rating < 1) {
+        rating = prompt('Please rate ' + tool +' from 1-5 stars!');
+    }
+    return rating;
+}
+
+function writeStars(stars, tool) {
+    // the idea here will be to write a list using a for loop.
+    document.write("<p>You think " + tool + " is " + stars + " stars!"); 
+    document.write("<ul class=\"star-rating\">");
+    for (let i = 0; i < stars; i++){
+        // I made this image in MSPaint, don't judge lol.
+        document.write("<li><img src=\"assets\\star.jpg\"></li>");
+    }
+    document.write("</ul></p>");
 }
