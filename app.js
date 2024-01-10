@@ -59,7 +59,7 @@ function writeStars(stars, tool) {
     document.write("<ul class=\"star-rating\">");
     for (let i = 0; i < stars; i++){
         // I made this image in MSPaint, don't judge lol.
-        document.write("<li><img src=\"assets\\star.jpg\"></li>");
+        document.write("<li><img src=\"assets\\star1.jpg\"></li>");
     }
     document.write("</ul></p>");
 }
